@@ -18,3 +18,4 @@ public class Oblig2 {
     }
     
 }
+//TEST
