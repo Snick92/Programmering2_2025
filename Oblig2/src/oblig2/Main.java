@@ -1,5 +1,6 @@
 package oblig2;
 
+import java.security.spec.ECPoint;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
@@ -10,42 +11,34 @@ public class Main {
 
         TVSeries stargate = new TVSeries("Stargate SG-1", "Sci-fi", LocalDate.of(1997,7,27));
 
-        /*Episode epOne = new Episode("Children of the Gods", 1, 1, 92);
-        Episode epTwo = new Episode("The Enemy Within", 2, 1, 44);
-        Episode epThree = new Episode("Emancipation", 3, 1, 44);
+        Episode episodeOne = new Episode("Children of the Gods", 1, 1, 92);
+        Episode episodeTwo = new Episode("The Enemy Within", 2, 1, 44);
+        Episode episodeThree = new Episode("Emancipation", 3, 1, 44);
 
 
 
-
-        epOne.setTitle("Piss off");
-        stargate.setTitle("Wank");
-
-        stargate.addEpisode(epOne);
-        stargate.addEpisode(epTwo);
-        stargate.addEpisode(epThree); */
-
-        //for(<init>;<skal skjøre så lenge dette er sant>; <gjør dette på slutten av hver løkke>) {}
-        //for(<gjør dette før løkken starter>;<skal skjøre så lenge dette er sant>; <gjør dette på slutten av hver løkke>) {}
+        //for(<init>;<skal kjøre så lenge dette er sant>; <gjør dette på slutten av hver løkke>) {}
+        //for(<gjør dette før løkken starter>;<skal kjøre så lenge dette er sant>; <gjør dette på slutten av hver løkke>) {}
 
         String tempEpisode = "";
         String tempSeason = "";
         String tempName = "Generisk navn";
-        Episode episodeOne;
+        Episode episode;
 
 
 
         for(int seasonNumber=1; seasonNumber<=5; seasonNumber++) {
             tempSeason = "Season: " + seasonNumber;
-            System.out.println(tempSeason);
+            System.out.println("\n" + "--- " + tempSeason + " ---");
 
 
             for(int episodeNumber=1; episodeNumber <=10; episodeNumber++) {
                 tempEpisode = "Episode: " + episodeNumber;
-                System.out.println(tempEpisode);
+                episode = new Episode(tempName, episodeNumber, seasonNumber, 92);
+                stargate.addEpisode(episode);
 
-                episodeOne = new Episode(tempName, episodeNumber, seasonNumber, 92);
-                stargate.addEpisode(episodeOne);
-
+                System.out.println(tempEpisode + ", " + tempName);
+                //Legg til metoden updateAverageRuntime() i løkka
             }
         }
 
@@ -55,5 +48,8 @@ public class Main {
         for (Episode ep : episodeInSeasonFour) {
             System.out.println(ep);
         }
+
+
+
     }
 }

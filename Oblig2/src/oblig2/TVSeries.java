@@ -18,9 +18,17 @@ public class TVSeries {
         this.episodes = new ArrayList<>();
     }
 
-    /*private ArrayList<Episode> updateAverageRuntime(double averageRunTime) {
-        ArrayList<Episode> seriesAverageRuntime = new ArrayList<Episode>();
-        for (Episode rt : )
+    /*private updateAverageRuntime() {
+        må lage metode
+        // Uferdig:
+        ArrayList Episode[] = {};
+        float avg, sum = 0;
+        int length = Episode.length;
+        for (ArrayList allEpisodes : Episode){
+            ;
+        }
+        avg = sum / length;
+        System.out.println(avg);
     }*/
 
     public void addEpisode(Episode episode) {
@@ -45,17 +53,16 @@ public class TVSeries {
         return episodesInSeason;
     }
 
-
-
-
-
-
     public String getTitle() {
         return title;
     }
     public void setTitle(String title) {
         this.title = title;
     }
+
+
+
+
     public String getDescription() {
         return description;
     }
