@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
-    // test commit 05.02.2025 11:12
+
     public static void main(String[] args) {
 
         TVSeries stargate = new TVSeries("Stargate SG-1", "Sci-fi", LocalDate.of(1997,7,27));
@@ -13,12 +13,6 @@ public class Main {
         //Episode episodeOne = new Episode("Children of the Gods", 1, 1, 92);
         //Episode episodeTwo = new Episode("The Enemy Within", 2, 1, 44);
         //Episode episodeThree = new Episode("Emancipation", 3, 1, 44);
-
-        //Hjelpevariabler
-        //String tempEpisode = "";
-        //String tempSeason = "";
-        //String tempEpisodeTitle = "Generisk navn";
-        //Episode episode;
 
 
         //for(<gjør dette før løkken starter (init)>; <skal kjøre så lenge dette er sant>; <gjør dette på slutten av hver løkke>) {}
