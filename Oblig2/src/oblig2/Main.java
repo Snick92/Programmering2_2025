@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
-
+    // test commit 05.02.2025 11:12
     public static void main(String[] args) {
 
         TVSeries stargate = new TVSeries("Stargate SG-1", "Sci-fi", LocalDate.of(1997,7,27));
