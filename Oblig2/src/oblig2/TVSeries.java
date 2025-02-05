@@ -10,6 +10,7 @@ public class TVSeries {
     private LocalDate releaseDate;
     private ArrayList<Episode> episodes;
     private double averageRunTime;
+    private int numSeasons = 0;
 
     public TVSeries(String title, String description, LocalDate releaseDate) {
         this.title = title;
@@ -18,28 +19,40 @@ public class TVSeries {
         this.episodes = new ArrayList<>();
     }
 
-    /*private updateAverageRuntime() {
-        må lage metode
-        // Uferdig:
-        ArrayList Episode[] = {};
-        float avg, sum = 0;
-        int length = Episode.length;
-        for (ArrayList allEpisodes : Episode){
-            ;
+    private void updateAverageRuntime() {
+        if (episodes.isEmpty()) {
+            this.averageRunTime = 0;
+            return;
         }
-        avg = sum / length;
-        System.out.println(avg);
-    }*/
+
+        int totalRuntime = 0;
+        for (Episode ep : episodes) {
+            totalRuntime += ep.getRuntime();
+        }
+
+        this.averageRunTime = (double) totalRuntime / episodes.size();
+    }
+
 
     public void addEpisode(Episode episode) {
+        if (episode.getSeasonNumber() > numSeasons + 1) {
+            System.out.println("Kan ikke legge til episode i sesong " + episode.getSeasonNumber()
+                    + ". Du kan kun legge til episoder i sesong 1 til " + numSeasons);
+            return;
+        }
         this.episodes.add(episode);
+        updateAverageRuntime();
+
+        if (episode.getSeasonNumber() > numSeasons) {
+            numSeasons = episode.getSeasonNumber();
+        }
     }
 
     public String toString() {
         String tempString = "TV-series title: " + this.title
                 + "\nDescription: " + this.description
                 + "\nRelease date: " + this.releaseDate
-                + "\nNumber of episodes: " + this.episodes;
+                + "\nNumber of episodes: " + this.episodes.size();
         return tempString;
     }
 
@@ -53,16 +66,15 @@ public class TVSeries {
         return episodesInSeason;
     }
 
+
+
+
     public String getTitle() {
         return title;
     }
     public void setTitle(String title) {
         this.title = title;
     }
-
-
-
-
     public String getDescription() {
         return description;
     }

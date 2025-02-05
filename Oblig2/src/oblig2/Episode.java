@@ -5,7 +5,7 @@ public class Episode {
     private String title;
     private int episodeNumber;
     private int seasonNumber;
-    private int runtime; // minutter
+    private int runtime; // minutter (round?)
 
     public Episode(String title, int episodeNumber, int seasonNumber, int runtime) {
 
@@ -20,6 +20,7 @@ public class Episode {
         this.title = title;
         this.episodeNumber = episodeNumber;
         this.seasonNumber = seasonNumber;
+        this.runtime = 0;
     }
 
     public String toString() {
