@@ -1,4 +1,7 @@
-package oblig2;
+package oblig3;
+
+import oblig3.model.Episode;
+import oblig3.model.TVSeries;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

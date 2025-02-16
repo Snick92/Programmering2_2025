@@ -1,4 +1,4 @@
-package model;
+package oblig3.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class TVSeries {
 
         int totalRuntime = 0;
         for (Episode ep : episodes) {
-            totalRuntime += ep.getRuntime();
+            totalRuntime += ep.getRuntimeInMinutes();
         }
 
         this.averageRunTime = (double) totalRuntime / episodes.size();
