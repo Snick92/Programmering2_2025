@@ -35,18 +35,19 @@ public class TVSeries {
 
 
     public void addEpisode(Episode episode) {
-        if (episode.getSeasonNumber() > numSeasons + 1) {
-            System.out.println("Kan ikke legge til episode i sesong " + episode.getSeasonNumber()
-                    + ". Du kan kun legge til episoder i sesong 1 til " + numSeasons);
-            return;
-        }
-        this.episodes.add(episode);
-        updateAverageRuntime();
+        if (numSeasons == 0 || episode.getSeasonNumber() <= numSeasons + 1) {
+            this.episodes.add(episode);
+            updateAverageRuntime();
 
-        if (episode.getSeasonNumber() > numSeasons) {
-            numSeasons = episode.getSeasonNumber();
+            if (episode.getSeasonNumber() > numSeasons) {
+                numSeasons = episode.getSeasonNumber();  // Oppdaterer numSeasons riktig
+            }
+        } else {
+            System.out.println("Kan ikke legge til episode i sesong " + episode.getSeasonNumber()
+                    + ". Du kan kun legge til episoder i sesong 1 til " + (numSeasons));
         }
     }
+
 
     public String toString() {
         String tempString = "TV-series title: " + this.title

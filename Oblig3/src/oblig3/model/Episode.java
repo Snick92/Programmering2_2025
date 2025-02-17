@@ -1,11 +1,13 @@
 package oblig3.model;
 
+import java.time.LocalDate;
+
 public class Episode extends Production {
     private int episodeNumber;
     private int seasonNumber;
 
-    public Episode(String title, int episodeNumber, int seasonNumber, int runtimeInMinutes) {
-        super(title, runtimeInMinutes);
+    public Episode(String title, int episodeNumber, int seasonNumber, int runtimeInMinutes, LocalDate releaseDate, String description, Person director) {
+        super(title, runtimeInMinutes, releaseDate, description, director);
         this.episodeNumber = episodeNumber;
         this.seasonNumber = seasonNumber;
     }
@@ -17,12 +19,15 @@ public class Episode extends Production {
         this.seasonNumber = seasonNumber;
     }
 
+
+
     @Override
     public String toString() {
         return "Episode title: " + getTitle()
                 + "\nEpisode number: " + episodeNumber
                 + "\nSeason number: " + seasonNumber
-                + "\nRuntime in minutes: " + getRuntimeInMinutes() + "\n";
+                + "\nRuntime in minutes: " + getRuntimeInMinutes()
+                + "\nDirector: " + getDirector();
     }
 
     public int getEpisodeNumber() {
