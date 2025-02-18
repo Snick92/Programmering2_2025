@@ -1,6 +1,7 @@
 package oblig3.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Production {
     private String title;
@@ -8,14 +9,16 @@ public class Production {
     private LocalDate releaseDate;
     private String description;
     private Person director;
+    private ArrayList<Role> roles;
 
-    // Tittel og lengde:
+    // All informasjon:
     public Production(String title, int runtimeInMinutes, LocalDate releaseDate, String description, Person director) {
         this.title = title;
         this.runtimeInMinutes = runtimeInMinutes;
         this.releaseDate = releaseDate;
         this.description = description;
         this.director = director;
+        this.roles = new ArrayList<>();
     }
 
     // Kun tittel:
@@ -24,8 +27,21 @@ public class Production {
         this.runtimeInMinutes = 0;
     }
 
+    public void addToRoles(Role role) {
+        this.roles.add(role);
+    }
 
+    public void addToRoles(ArrayList<Role> listOfRoles) {
+        this.roles.addAll (listOfRoles);
+    }
 
+    public ArrayList<Role> getRoles() {
+        return new ArrayList<>(roles);
+    }
+
+    public void setRoles(ArrayList roles) {
+        this.roles = roles;
+    }
 
     public String getTitle() {
         return title;
