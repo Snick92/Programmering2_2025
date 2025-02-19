@@ -27,6 +27,17 @@ public class Production {
         this.runtimeInMinutes = 0;
     }
 
+
+    @Override
+    public String toString() {
+        return "Title: " + title +
+                "\nRuntime: " + runtimeInMinutes + " min" +
+                "\nRelease Date: " + releaseDate +
+                "\nDirector: " + director +
+                "\nDescription: " + description;
+    }
+
+
     public void addToRoles(Role role) {
         this.roles.add(role);
     }

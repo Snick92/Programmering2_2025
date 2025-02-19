@@ -48,13 +48,14 @@ public class TVSeries {
         }
     }
 
-
+    @Override
     public String toString() {
-        String tempString = "TV-series title: " + this.title
-                + "\nDescription: " + this.description
-                + "\nRelease date: " + this.releaseDate
-                + "\nNumber of episodes: " + this.episodes.size();
-        return tempString;
+        return "TV Series: " + title +
+                "\nGenre: " + description +
+                "\nRelease Date: " + releaseDate +
+                "\nNumber of Episodes: " + episodes.size() +
+                "\nNumber of Seasons: " + numSeasons +
+                "\nAverage Runtime: " + averageRunTime + " min";
     }
 
     public ArrayList<Episode> getEpisodesInSeason(int season) {
@@ -67,6 +68,15 @@ public class TVSeries {
         return episodesInSeason;
     }
 
+    public ArrayList<Role> hentRollebesetning() {
+        ArrayList<Role> roller = new ArrayList<>();
+
+        for (Episode episode : episodes) {
+            roller.addAll(episode.getRoles());
+        }
+
+        return roller;
+    }
 
 
 
