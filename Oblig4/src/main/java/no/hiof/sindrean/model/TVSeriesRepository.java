@@ -8,10 +8,10 @@ import java.util.List;
 public interface TVSeriesRepository {
     void addListOfTVSeries(ArrayList<TVSeries> listOfTVSeries);
 
-    void addListOfTVSeries (List<TVSeries> listOfTVSeries);
+    void addListOfTVSeries(List<TVSeries> listOfTVSeries);
+
     List<TVSeries> getAllTVSeries();
-    TVSeries getTVSeriesByTitle (String title);
-
-
-
+    TVSeries getTVSeriesByTitle(String title);
 }
+
+

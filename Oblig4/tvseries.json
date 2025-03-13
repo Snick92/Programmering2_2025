@@ -1,0 +1,25 @@
+[ {
+  "title" : "Band of Brothers",
+  "description" : "The story of Easy Company",
+  "releaseDate" : [ 2001, 9, 9 ],
+  "episodes" : [ ],
+  "averageRuntime" : 0.0,
+  "numSeasons" : 0,
+  "cast" : [ ]
+}, {
+  "title" : "The Terror",
+  "description" : "Supernatural horror drama",
+  "releaseDate" : [ 2018, 3, 25 ],
+  "episodes" : [ ],
+  "averageRuntime" : 0.0,
+  "numSeasons" : 0,
+  "cast" : [ ]
+}, {
+  "title" : "The Grand Tour",
+  "description" : "British auto show",
+  "releaseDate" : [ 2016, 11, 18 ],
+  "episodes" : [ ],
+  "averageRuntime" : 0.0,
+  "numSeasons" : 0,
+  "cast" : [ ]
+} ]

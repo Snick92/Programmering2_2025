@@ -19,6 +19,11 @@ public class TVSeries {
         this.releaseDate = releaseDate;
     }
 
+    public TVSeries() {
+
+    }
+
+
     /*
     Oppgave 2.7
      */
@@ -28,14 +33,6 @@ public class TVSeries {
         for (Episode episode : episodes) {
             cast.addAll(episode.getRoles()); // Uten håndtering av duplikater
 
-            /*
-            Oppgave 3.1 (Bonus) - Erstatt linjen over med dette
-            for (Role role : episode.getRoles()) {
-                if(!cast.contains(role)) {
-                    cast.add(role);
-                }
-            }
-             */
         }
 
         return cast;
@@ -89,6 +86,9 @@ public class TVSeries {
         }
         averageRuntime = (double) sumRunTime / episodes.size();
     }
+
+
+
 
     @Override
     public String toString() {
