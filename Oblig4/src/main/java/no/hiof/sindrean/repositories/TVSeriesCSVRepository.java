@@ -1,4 +1,6 @@
-package no.hiof.sindrean.model;
+package no.hiof.sindrean.repositories;
+
+import no.hiof.sindrean.model.TVSeries;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -24,11 +26,12 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
                 writer.write(csvLine);
                 writer.newLine();
             }
-            System.out.println("TV-serier er lagret i CSV-filen!");
-        } catch (IOException e) {
-            System.err.println("Feil ved skriving til CSV-filen: " + e.getMessage());
+            System.out.println("*** TV-serier er lagret i CSV-filen ***" + "\n" + "..." + "\n");
+        } catch (IOException error) {
+            System.err.println("*** Feil ved skriving til CSV-filen ***" + error.getMessage());
         }
     }
+
 
     @Override
     public void addListOfTVSeries(List<TVSeries> listOfTVSeries) {
@@ -45,19 +48,19 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
 
-                // Henter ut data fra linjen
+
                 String title = data[0];
                 String description = data[1];
                 int year = Integer.parseInt(data[2]);
                 int month = Integer.parseInt(data[3]);
                 int day = Integer.parseInt(data[4]);
 
-                // Oppretter et TVSeries-objekt
+
                 TVSeries tvSeries = new TVSeries(title, description, LocalDate.of(year, month, day));
                 tvSeriesList.add(tvSeries);
             }
-        } catch (IOException e) {
-            System.err.println("Feil ved lesing fra CSV-filen: " + e.getMessage());
+        } catch (IOException error) {
+            System.err.println("*** Feil ved lesing fra CSV-filen ***" + "\n" + error.getMessage());
         }
 
         return tvSeriesList;
@@ -82,8 +85,8 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
                     return new TVSeries(fileTitle, description, LocalDate.of(year, month, day));
                 }
             }
-        } catch (IOException e) {
-            System.err.println("Feil ved lesing fra CSV-filen: " + e.getMessage());
+        } catch (IOException error) {
+            System.err.println("*** Feil ved lesing fra CSV-filen ***" + "\n" + error.getMessage());
         }
         return null;
     }

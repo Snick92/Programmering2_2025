@@ -1,4 +1,4 @@
-package no.hiof.sindrean.model;
+package no.hiof.sindrean.repositories;
 
 import no.hiof.sindrean.model.TVSeries;
 
@@ -11,6 +11,7 @@ public interface TVSeriesRepository {
     void addListOfTVSeries(List<TVSeries> listOfTVSeries);
 
     List<TVSeries> getAllTVSeries();
+
     TVSeries getTVSeriesByTitle(String title);
 }
 
