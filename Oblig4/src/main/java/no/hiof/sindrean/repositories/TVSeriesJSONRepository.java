@@ -10,11 +10,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+// Klasse (lagring og henting av TV-serier i en JSON-fil)
 public class TVSeriesJSONRepository implements TVSeriesRepository {
     private File file;
     private ObjectMapper objectMapper;
 
-
+    // Konstruktør (initialiserer filen og ObjectMapper)
     public TVSeriesJSONRepository(File file) {
         this.file = file;
         this.objectMapper = new ObjectMapper();
@@ -22,7 +23,7 @@ public class TVSeriesJSONRepository implements TVSeriesRepository {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
 
-    // Skriving til JSON-fil
+    // Lagrer en liste av TV-serier til JSON-fila
     @Override
     public void addListOfTVSeries(ArrayList<TVSeries> listOfTVSeries) {
         try {
@@ -33,13 +34,13 @@ public class TVSeriesJSONRepository implements TVSeriesRepository {
         }
     }
 
+    // 'Overload' (?) addListOfTVSeries
     @Override
     public void addListOfTVSeries(List<TVSeries> listOfTVSeries) {
 
     }
 
-
-
+    // Henter ALLE TV-serier fra JSON-filen
     @Override
     public List<TVSeries> getAllTVSeries() {
         try {
@@ -53,6 +54,7 @@ public class TVSeriesJSONRepository implements TVSeriesRepository {
         return new ArrayList<>();
     }
 
+    // Henter en SPESIFIKK TV-serie
     @Override
     public TVSeries getTVSeriesByTitle(String title) {
         try {
@@ -72,5 +74,4 @@ public class TVSeriesJSONRepository implements TVSeriesRepository {
 
         return null;
     }
-
 }

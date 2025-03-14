@@ -7,17 +7,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+// Klasse (lagring og henting av TV-serier i en CSV-fil)
 public class TVSeriesCSVRepository implements TVSeriesRepository {
     private File file;
 
+    // Konstruktør
     public TVSeriesCSVRepository(File file) {
         this.file = file;
     }
 
+    // Lagrer TV-seriene til CSV-filen vår:
     @Override
     public void addListOfTVSeries(ArrayList<TVSeries> listOfTVSeries) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
             for (TVSeries tvSeries : listOfTVSeries) {
+
+                // Konverterer TV-serien til CSV-format (bruker komma som separator)
                 String csvLine = tvSeries.getTitle() + "," +
                         tvSeries.getDescription() + "," +
                         tvSeries.getReleaseDate().getYear() + "," +
@@ -35,9 +40,10 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
 
     @Override
     public void addListOfTVSeries(List<TVSeries> listOfTVSeries) {
-        
+
     }
 
+    // Leser samtlige TV-serier fra CSV-filen, returnerer som en liste
     @Override
     public ArrayList<TVSeries> getAllTVSeries() {
         ArrayList<TVSeries> tvSeriesList = new ArrayList<>();
@@ -46,16 +52,17 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
             String line;
 
             while ((line = reader.readLine()) != null) {
+                // Deler på komma:
                 String[] data = line.split(",");
 
-
+                // Henter ut data:
                 String title = data[0];
                 String description = data[1];
                 int year = Integer.parseInt(data[2]);
                 int month = Integer.parseInt(data[3]);
                 int day = Integer.parseInt(data[4]);
 
-
+                // Oppretter et TVSeries-objekt og legger det til i listen "tvSeries"
                 TVSeries tvSeries = new TVSeries(title, description, LocalDate.of(year, month, day));
                 tvSeriesList.add(tvSeries);
             }
@@ -66,7 +73,7 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
         return tvSeriesList;
     }
 
-
+    // Henter en TV-serie basert på tittel
     @Override
     public TVSeries getTVSeriesByTitle(String title) {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
@@ -81,6 +88,7 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
                 int month = Integer.parseInt(data[3]);
                 int day = Integer.parseInt(data[4]);
 
+                // ".equalsIgnoreCase" <- AI
                 if (fileTitle.equalsIgnoreCase(title)) {
                     return new TVSeries(fileTitle, description, LocalDate.of(year, month, day));
                 }
@@ -90,5 +98,4 @@ public class TVSeriesCSVRepository implements TVSeriesRepository {
         }
         return null;
     }
-
 }
